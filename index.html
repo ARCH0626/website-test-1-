@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazeez Affaire - An Affair with Luxury & Flavour Since 1999</title>
+    <style>
+        :root {
+            --color-primary: #1a1a1a;
+            --color-gold: #c9a961;
+            --color-cream: #f8f6f3;
+            --color-emerald: #1a4d3e;
+            --color-text: #2d2d2d;
+            --color-light-gold: #e8dcc5;
+            --color-accent: #8b7355;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: var(--color-text);
+            background: var(--color-cream);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 5%;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--color-gold);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-cream);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-gold);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            height: 90vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a4d3e" width="1200" height="800"/><text x="50%" y="50%" fill="%23c9a961" font-size="120" text-anchor="middle" font-family="Georgia">Lazeez Affaire</text></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-gold);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            letter-spacing: 3px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--color-cream);
+            letter-spacing: 2px;
+        }
+
+        .cta-button {
+            background: var(--color-gold);
+            color: var(--color-primary);
+            padding: 1rem 3rem;
+            text-decoration: none;
+            border-radius: 3px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            display: inline-block;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .cta-button:hover {
+            background: var(--color-light-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            letter-spacing: 2px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: var(--color-gold);
+            margin: 1.5rem auto;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--color-accent);
+            margin-bottom: 4rem;
+            font-style: italic;
+        }
+
+        /* Story Section */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-text h3 {
+            color: var(--color-emerald);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: var(--color-text);
+        }
+
+        .timeline {
+            background: white;
+            padding: 2rem;
+            border-left: 4px solid var(--color-gold);
+            margin: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+        }
+
+        .timeline-year {
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 500px;
+            background: var(--color-emerald);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .award-card {
+            background: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-icon {
+            font-size: 3rem;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+        }
+
+        .award-card h3 {
+            color: var(--color-emerald);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .award-card p {
+            color: var(--color-accent);
+            font-size: 0.95rem;
+        }
+
+        /* Menu Section */
+        .menu-categories {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .menu-category-btn {
+            background: white;
+            color: var(--color-text);
+            border: 2px solid var(--color-gold);
+            padding: 0.8rem 2rem;
+            cursor: pointer;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .menu-category-btn:hover,
+        .menu-category-btn.active {
+            background: var(--color-gold);
+            color: white;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            background: var(--color-light-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .signature-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--color-gold);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .menu-item-content {
+            padding: 2rem;
+        }
+
+        .menu-item-content h3 {
+            color: var(--color-emerald);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .menu-item-content p {
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .menu-item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .menu-icon {
+            width: 20px;
+            height: 20px;
+            background: var(--color-light-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        /* Interior Section */
+        .interior-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem 1.5rem 1.5rem;
+            color: white;
+        }
+
+        .gallery-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Reservations Section */
+        .reservation-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+            font-weight: bold;
+            font-family: 'Arial', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--color-light-gold);
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: 'Georgia', serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-gold);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--color-gold);
+            color: var(--color-primary);
+            padding: 1.2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .submit-btn:hover {
+            background: var(--color-light-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--color-gold);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            color: var(--color-emerald);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            color: var(--color-text);
+        }
+
+        .contact-card a {
+            color: var(--color-gold);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-primary);
+            color: var(--color-cream);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--color-gold);
+            font-size: 1.8rem;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Lazeez Affaire</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#interior">Interior</a></li>
+            <li><a href="#reservations">Reservations</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Lazeez Affaire</h1>
+            <p>An Affair with Luxury &amp; Flavour Since 1999</p>
+            <a href="#reservations" class="cta-button">Reserve Your Table</a>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="section">
+        <h2 class="section-title">Our Story</h2>
+        <p class="section-subtitle">A Legacy of Royal Indian Hospitality</p>
+        
+        <div class="story-content">
+            <div class="story-text">
+                <h3>The Beginning of an Affair</h3>
+                <p>Founded in 1999 by visionaries Priyank Sukhija and Y.P. Ashok, Lazeez Affaire emerged as one of Delhi's pioneering fine-dining establishments, bringing the opulence of Mughal courts to modern India.</p>
+                
+                <p>Our name speaks to a passionate relationship with authentic flavours, where every dish is a love letter to India's rich culinary heritage. From the velvety galouti kebabs to the aromatic biryanis, each recipe has been perfected over decades.</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1999</div>
+                        <p>Lazeez Affaire opens its first location in Delhi, introducing luxury North Indian dining to the capital.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2005</div>
+                        <p>Recognized as one of India's Top 50 Restaurants by leading food critics and publications.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2015</div>
+                        <p>Expanded to multiple locations across Delhi NCR, maintaining unwavering quality standards.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <p>Celebrating 26 years of culinary excellence and serving over 2 million satisfied guests.</p>
+                    </div>
+                </div>
+
+                <p>Today, Lazeez Affaire stands as a testament to timeless hospitality, where tradition meets contemporary luxury in every aspect—from our palatial interiors to our meticulously crafted menu.</p>
+            </div>
+            
+            <div class="story-image">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/18bb524ab61d2a440027f26b03333fe0bf1ff46a.jpg" alt="Lazeez Affaire Interior">
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section" style="background: white;">
+        <h2 class="section-title">Awards &amp; Recognition</h2>
+        <p class="section-subtitle">Honoured by Critics, Loved by Connoisseurs</p>
+        
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <h3>Times Food Award</h3>
+                <p>Best North Indian Restaurant - Delhi NCR (2018, 2022)</p>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-icon">⭐</div>
+                <h3>TripAdvisor Excellence</h3>
+                <p>Certificate of Excellence 5 Years Running (2019-2024)</p>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-icon">👨‍🍳</div>
+                <h3>Chef's Table Recognition</h3>
+                <p>Featured in Vir Sanghvi's 'The Taste' Column</p>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-icon">🌟</div>
+                <h3>Zomato Gold</h3>
+                <p>Top Rated Fine Dining - 4.5+ Rating with 10,000+ Reviews</p>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-icon">💎</div>
+                <h3>Luxury Dining Award</h3>
+                <p>Best Ambiance &amp; Service - India Today (2020)</p>
+            </div>
+            
+            <div class="award-card">
+                <div class="award-icon">🎖️</div>
+                <h3>Heritage Cuisine</h3>
+                <p>Authentic Mughlai Excellence - NDTV Food Awards</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="section">
+        <h2 class="section-title">Our Signature Menu</h2>
+        <p class="section-subtitle">Curated Delicacies from the Royal Kitchens</p>
+        
+        <div class="menu-categories">
+            <button class="menu-category-btn active" data-category="signature">Chef's Signatures</button>
+            <button class="menu-category-btn" data-category="kebabs">Kebabs</button>
+            <button class="menu-category-btn" data-category="mains">Main Course</button>
+            <button class="menu-category-btn" data-category="biryani">Biryanis</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <!-- Menu items will be dynamically populated -->
+        </div>
+    </section>
+
+    <!-- Interior Section -->
+    <section id="interior" class="section" style="background: white;">
+        <h2 class="section-title">Interior Elegance</h2>
+        <p class="section-subtitle">Where Opulence Meets Comfort</p>
+        
+        <div class="interior-gallery">
+            <div class="gallery-item">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/157e908924e417c2e4d2393d189894b911fab35f.jpg" alt="Main Dining Hall">
+                <div class="gallery-overlay">
+                    <h3>Main Dining Hall</h3>
+                    <p>Palatial seating with chandelier accents</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056326/search_images/6eee7d3616d463cc2f2cbc78e328077d930b4555.jpg" alt="Gold Accents">
+                <div class="gallery-overlay">
+                    <h3>Luxury Details</h3>
+                    <p>Brass &amp; gold accents throughout</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/a270d747cd75078506f817c9c95915c049dcd3b6.jpg" alt="Private Dining">
+                <div class="gallery-overlay">
+                    <h3>Private Dining Rooms</h3>
+                    <p>Intimate spaces for special occasions</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/1974b7d918fdb7fe1010a4b7d8dfea5381e1b508.jpg" alt="Decor Details">
+                <div class="gallery-overlay">
+                    <h3>Curated Decor</h3>
+                    <p>Handpicked ceramics &amp; artwork</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/3e3b4d09a6e745728ad1fc4f99eaac3b7492f385.jpg" alt="Lighting">
+                <div class="gallery-overlay">
+                    <h3>Ambient Lighting</h3>
+                    <p>Classic brass pendant fixtures</p>
+                </div>
+            </div>
+            
+            <div class="gallery-item">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/83f6036f9141f34aba4fa6688f8d8d1c331d6d51.jpg" alt="Seating">
+                <div class="gallery-overlay">
+                    <h3>Plush Seating</h3>
+                    <p>Comfort designed for leisurely dining</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations Section -->
+    <section id="reservations" class="section">
+        <h2 class="section-title">Reserve Your Table</h2>
+        <p class="section-subtitle">Experience Unparalleled Luxury Dining</p>
+        
+        <div class="reservation-container">
+            <form id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="guests">Number of Guests *</label>
+                        <select id="guests" required>
+                            <option value="">Select...</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="7+">7+ Guests (Group)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="time">Preferred Time *</label>
+                        <select id="time" required>
+                            <option value="">Select...</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="19:00">7:00 PM</option>
+                            <option value="19:30">7:30 PM</option>
+                            <option value="20:00">8:00 PM</option>
+                            <option value="20:30">8:30 PM</option>
+                            <option value="21:00">9:00 PM</option>
+                            <option value="21:30">9:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="occasion">Special Occasion</label>
+                    <select id="occasion">
+                        <option value="">None</option>
+                        <option value="birthday">Birthday Celebration</option>
+                        <option value="anniversary">Anniversary</option>
+                        <option value="business">Business Dinner</option>
+                        <option value="proposal">Proposal/Engagement</option>
+                        <option value="other">Other Celebration</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="requests">Special Requests or Dietary Requirements</label>
+                    <textarea id="requests" rows="4" placeholder="Please let us know if you have any dietary restrictions or special arrangements..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Confirm Reservation</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" style="background: white;">
+        <h2 class="section-title">Visit Us</h2>
+        <p class="section-subtitle">Multiple Locations Across Delhi NCR</p>
+        
+        <div class="contact-info">
+            <div class="contact-card">
+                <div class="contact-icon">📍</div>
+                <h3>Connaught Place</h3>
+                <p>24, K Block, Connaught Place<br>New Delhi - 110001</p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">📞</div>
+                <h3>Call Us</h3>
+                <p><a href="tel:+911123456789">+91 11 2345 6789</a><br>
+                <a href="tel:+919876543210">+91 98765 43210</a></p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p><a href="mailto:reservations@lazeezaffaire.co.in">reservations@lazeezaffaire.co.in</a><br>
+                <a href="mailto:info@lazeezaffaire.co.in">info@lazeezaffaire.co.in</a></p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-icon">⏰</div>
+                <h3>Opening Hours</h3>
+                <p>Lunch: 12:00 PM - 3:30 PM<br>
+                Dinner: 7:00 PM - 11:30 PM<br>
+                Open All Days</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Zomato">🍽️</a>
+            </div>
+            <p style="margin-bottom: 1rem; font-size: 1.1rem;">An Affair with Luxury &amp; Flavour Since 1999</p>
+            <p>&copy; 2025 Lazeez Affaire. All rights reserved. | Designed with passion for excellence.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Data
+        const menuData = {
+            signature: [
+                {
+                    name: "Galouti Kebab",
+                    description: "Melt-in-mouth lamb kebabs with 160 spices, served on warqi paratha. Our most celebrated dish since 1999.",
+                    signature: true,
+                    veg: false,
+                    spicy: 1,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1763372286/search_images/446fb145c8b371dcc7a4f4c8f648ec2814d248dc.jpg"
+                },
+                {
+                    name: "Dal Bukhara",
+                    description: "Slow-cooked black lentils simmered overnight with butter, cream, and aromatic spices. A royal delicacy.",
+                    signature: true,
+                    veg: true,
+                    spicy: 0,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/d258989593f8c5ac470029fe0aa6f4b89f3e37fc.jpg"
+                },
+                {
+                    name: "Murgh Lazeez",
+                    description: "Our signature butter chicken with a secret blend of kasuri methi, finished in a tandoor.",
+                    signature: true,
+                    veg: false,
+                    spicy: 1,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/83f6036f9141f34aba4fa6688f8d8d1c331d6d51.jpg"
+                },
+                {
+                    name: "Paneer Khurchan",
+                    description: "Cottage cheese tossed with bell peppers, onions, and rich tomato gravy. Perfect for vegetarians.",
+                    signature: true,
+                    veg: true,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/18bb524ab61d2a440027f26b03333fe0bf1ff46a.jpg"
+                }
+            ],
+            kebabs: [
+                {
+                    name: "Seekh Kebab",
+                    description: "Minced lamb skewers with royal spices, grilled to perfection in the tandoor.",
+                    signature: false,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/83f6036f9141f34aba4fa6688f8d8d1c331d6d51.jpg"
+                },
+                {
+                    name: "Malai Tikka",
+                    description: "Creamy chicken marinated in cheese, cream, and mild spices. A crowd favorite.",
+                    signature: false,
+                    veg: false,
+                    spicy: 0,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1763372286/search_images/446fb145c8b371dcc7a4f4c8f648ec2814d248dc.jpg"
+                },
+                {
+                    name: "Hara Bhara Kebab",
+                    description: "Spinach and peas patties with paneer, shallow fried to golden perfection.",
+                    signature: false,
+                    veg: true,
+                    spicy: 1,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/d258989593f8c5ac470029fe0aa6f4b89f3e37fc.jpg"
+                },
+                {
+                    name: "Tandoori Prawns",
+                    description: "Jumbo prawns marinated in tandoori masala, served with mint chutney.",
+                    signature: false,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/83f6036f9141f34aba4fa6688f8d8d1c331d6d51.jpg"
+                }
+            ],
+            mains: [
+                {
+                    name: "Rogan Josh",
+                    description: "Kashmiri lamb curry with yogurt, aromatic spices, and saffron. A Mughal masterpiece.",
+                    signature: false,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/d258989593f8c5ac470029fe0aa6f4b89f3e37fc.jpg"
+                },
+                {
+                    name: "Saag Meat",
+                    description: "Tender lamb cooked with fresh spinach, mustard greens, and spices.",
+                    signature: false,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1763372286/search_images/446fb145c8b371dcc7a4f4c8f648ec2814d248dc.jpg"
+                },
+                {
+                    name: "Paneer Lababdar",
+                    description: "Cottage cheese in rich tomato-cashew gravy with butter and cream.",
+                    signature: false,
+                    veg: true,
+                    spicy: 1,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/83f6036f9141f34aba4fa6688f8d8d1c331d6d51.jpg"
+                },
+                {
+                    name: "Dum Aloo Kashmiri",
+                    description: "Baby potatoes stuffed with paneer, cooked in rich yogurt gravy.",
+                    signature: false,
+                    veg: true,
+                    spicy: 1,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/18bb524ab61d2a440027f26b03333fe0bf1ff46a.jpg"
+                }
+            ],
+            biryani: [
+                {
+                    name: "Hyderabadi Mutton Biryani",
+                    description: "Layered basmati rice with tender mutton, saffron, and aromatic spices. Served with raita.",
+                    signature: true,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/d258989593f8c5ac470029fe0aa6f4b89f3e37fc.jpg"
+                },
+                {
+                    name: "Awadhi Chicken Biryani",
+                    description: "Lucknowi-style biryani with succulent chicken and whole spices.",
+                    signature: false,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1763372286/search_images/446fb145c8b371dcc7a4f4c8f648ec2814d248dc.jpg"
+                },
+                {
+                    name: "Vegetable Dum Biryani",
+                    description: "Fragrant basmati rice with seasonal vegetables, nuts, and saffron.",
+                    signature: false,
+                    veg: true,
+                    spicy: 1,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056327/search_images/83f6036f9141f34aba4fa6688f8d8d1c331d6d51.jpg"
+                },
+                {
+                    name: "Prawn Biryani",
+                    description: "Coastal-inspired biryani with jumbo prawns and curry leaves.",
+                    signature: false,
+                    veg: false,
+                    spicy: 2,
+                    image: "https://pplx-res.cloudinary.com/image/upload/v1764056325/search_images/18bb524ab61d2a440027f26b03333fe0bf1ff46a.jpg"
+                }
+            ]
+        };
+
+        // Display Menu Items
+        function displayMenu(category) {
+            const menuGrid = document.getElementById('menuGrid');
+            menuGrid.innerHTML = '';
+            
+            menuData[category].forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                
+                const spicyIcons = '🌶️'.repeat(item.spicy);
+                
+                menuItem.innerHTML = `
+                    <div class="menu-item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                        ${item.signature ? '<span class="signature-badge">Chef\'s Signature</span>' : ''}
+                    </div>
+                    <div class="menu-item-content">
+                        <h3>${item.name}</h3>
+                        <p>${item.description}</p>
+                        <div class="menu-item-footer">
+                            <div class="menu-icons">
+                                <span class="menu-icon" title="${item.veg ? 'Vegetarian' : 'Non-Vegetarian'}">${item.veg ? '🥬' : '🍖'}</span>
+                                ${item.spicy > 0 ? `<span class="menu-icon" title="Spice Level">${spicyIcons}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                menuGrid.appendChild(menuItem);
+            });
+        }
+
+        // Menu Category Buttons
+        document.querySelectorAll('.menu-category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.menu-category-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                displayMenu(button.dataset.category);
+            });
+        });
+
+        // Initialize with signature dishes
+        displayMenu('signature');
+
+        // Form Submission
+        document.getElementById('reservationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                guests: document.getElementById('guests').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value,
+                occasion: document.getElementById('occasion').value,
+                requests: document.getElementById('requests').value
+            };
+            
+            alert(`Thank you, ${formData.name}!\n\nYour reservation request has been received.\n\nDetails:\n• Date: ${formData.date}\n• Time: ${formData.time}\n• Guests: ${formData.guests}\n\nOur team will confirm your booking within 2 hours via phone or email.`);
+            
+            document.getElementById('reservationForm').reset();
+        });
+
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').setAttribute('min', today);
+    </script>
+</body>
+</html>
